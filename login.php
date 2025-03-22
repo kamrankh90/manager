@@ -1,4 +1,6 @@
 <?php
+session_start(); // شروع session
+
 // اطلاعات ورودی از فرم
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -9,6 +11,8 @@ $correct_password = "1234";
 
 // بررسی اطلاعات
 if ($username === $correct_username && $password === $correct_password) {
+    // ذخیره اطلاعات کاربر در session
+    $_SESSION['username'] = $username;
     // هدایت به داشبورد
     header("Location: dashboard.php");
     exit();
